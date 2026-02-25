@@ -3,8 +3,6 @@
   home.username = "vishwas";
   home.homeDirectory = "/home/vishwas";
 
-  nixpkgs.config.allowUnfree = true;
-
   home.stateVersion = "25.05";
 
   targets.genericLinux.enable = true;
@@ -21,8 +19,8 @@
     btop
     bun
     nodejs
-    fish
     tailscale
+    dust
   ];
 
   programs.fish = {
