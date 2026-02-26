@@ -5,13 +5,16 @@
 
   home.stateVersion = "25.05";
 
-  targets.genericLinux.enable = true;
+  news.display = "silent";
 
-  xdg.configFile."nix/nix.conf" = {
-    force = true;
-    text = ''
-      experimental-features = nix-command flakes
-    '';
+  targets.genericLinux.enable = true;
+  targets.genericLinux.gpu.enable = false;
+
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
   };
 
   home.packages = with pkgs; [
@@ -51,6 +54,12 @@
   programs.atuin = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.eza = {
