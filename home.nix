@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, opencodePkgs, ... }:
 {
   home.username = "vishwas";
   home.homeDirectory = "/home/vishwas";
@@ -19,7 +19,8 @@
 
   home.packages = with pkgs; [
     gh
-    opencode
+    opencodePkgs.default
+    neovim
     btop
     bun
     nodejs
